@@ -1,0 +1,15 @@
+## 生命周期
+
+<img src="https://www.dengwb.com/static/vue/lifecycle.png" width="80%"/>
+
+## 创建阶段
+
+<img src="https://www.dengwb.com/static/vue/lifecycle-createstage.png" width="80%"/>
+
+## 更新阶段
+
+<img src="https://www.dengwb.com/static/vue/lifecycle-updatestage.png" width="80%"/>
+
+## 销毁阶段
+
+<img src="https://www.dengwb.com/static/vue/lifecycle-destorystage.png" width="80%"/>
