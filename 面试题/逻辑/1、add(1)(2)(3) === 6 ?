@@ -1,0 +1,28 @@
+# 实现 add(1)(2)(3) 等于 6
+
+function add (num) {
+  let sum = num
+  const add = n => {
+    sum = sum + n
+    return add
+  }
+  add.toString = () => sum
+  return add
+}
+
+
+## 变种add(1)(2, 3) 等于 6
+
+function add() {
+	let sum = 0
+	function add () {
+		for (let i = 0; i < arguments.length; i++) {
+			sum += +arguments[i]
+		}
+		return add
+	}
+	add.valueOf = function () {
+		return sum
+	}
+	return add.apply(null, arguments)
+}
