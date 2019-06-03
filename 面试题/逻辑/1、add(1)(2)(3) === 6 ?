@@ -26,3 +26,5 @@ function add() {
 	}
 	return add.apply(null, arguments)
 }
+
+function add(a, b) { return (a = add.bind(0, b = [].join.call(arguments, '+'))).toString = eval.bind(0, b), a }
