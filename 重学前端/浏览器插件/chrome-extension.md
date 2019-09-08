@@ -24,7 +24,7 @@
     "scripts": ["background.js"]
   },
   // 浏览器设置
-  "page_action": {
+  "browser_action": {
     "default_icon": "images/icon.png",
     "default_title": "Title",
     "default_popup": "popup.html"
