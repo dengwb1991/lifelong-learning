@@ -4,4 +4,8 @@
 
 在本示例中，我们添加了一个 reducer 文件，它的作用是对 State 的值的改变进行约束。
 
-于此同时，我们讲 Store.changeState() 方法命名为 Store.dispatch()。
+于此同时，我们将 Store.changeState() 方法命名为 Store.dispatch()。
+
+## Flow
+
+dispatch(action) -> reducers(previousState, action) -> Store -> store.subscribe(callback)
