@@ -1,4 +1,4 @@
-# Reducer 的拆分与结合
+# Reducer 的拆分与合并
 
 Reducer 函数负责生产 State。由于整个应用只有一个 State 对象，它包含所有的数据，对于大型项目来说，这个 State 必然十分庞大，从而也会导致 Reducer 函数变得庞大。
 
