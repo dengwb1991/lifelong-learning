@@ -5,6 +5,9 @@ const reducer = combineReducers(reducers)
 
 let store = createStore(reducer)
 
+/**
+ * { counter: { count: 0 }, info: { name: 'Xiao Ming' } }
+ */
 // console.dir(store.getState())
 
 store.subscribe(() => {
