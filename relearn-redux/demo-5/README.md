@@ -2,7 +2,7 @@
 
 * 中间件是对 dispatch 的扩展。
 
-如果现在有一个需求，在每次执行 dispatch 时，打印出状态更新的日志。我们该怎么做？看代码
+如果现在有一个需求，在每次执行 dispatch 时，打印出状态更新的日志。我们该怎么做？看代码
 
 ```js
 const store = createStore(reducer)
