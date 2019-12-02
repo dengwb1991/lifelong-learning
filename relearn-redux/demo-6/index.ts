@@ -10,7 +10,7 @@ const reducer = combineReducers(reducers)
 /**
  * 接收旧的 createStore，返回新的 createStore
  */
-const rewriteCreateStoreFunc = applyMiddleware(loggerMiddleware, timeMiddleware, exceptionMiddleware)
+const rewriteCreateStoreFunc = applyMiddleware(exceptionMiddleware, timeMiddleware, loggerMiddleware)
 
 const store = createStore(reducer, {}, rewriteCreateStoreFunc)
 

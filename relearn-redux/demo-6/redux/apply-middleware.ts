@@ -17,7 +17,7 @@ const applyMiddleware = (...middlewares: any[]) => {
       /**
        * 实现 exception(time(logger(dispatch)))
        */
-      chain.map(middleware => {
+      chain.reverse().map(middleware => {
         dispatch = middleware(dispatch)
       })
       /**
