@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "kana-redux": ["dist/kana-redux.js"]
+    }
+  }
+}
