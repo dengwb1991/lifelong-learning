@@ -45,6 +45,7 @@
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.8.0",
+    "owl-redux": "^0.0.1",
     "portfinder": "^1.0.25",
     "prettier": "^1.19.1",
     "react": "^16.11.0",

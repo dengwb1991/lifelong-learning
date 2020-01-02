@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import store from '../redux/store'
-import { bindActionCreators } from 'kana-redux'
+import { bindActionCreators } from 'owl-redux'
 import { changeCount } from '../redux/counter'
 
 const actions: any = bindActionCreators({ changeCount }, store.dispatch)

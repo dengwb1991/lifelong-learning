@@ -1,4 +1,4 @@
-import { combineReducers } from 'kana-redux'
+import { combineReducers } from 'owl-redux'
 
 import counter from './counter'
 
