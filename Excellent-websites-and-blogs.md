@@ -4,6 +4,7 @@
 
 A facebook front end engineer: https://overreacted.io/  
 
+hackernoon: https://hackernoon.com/
 
 ## Website
 
