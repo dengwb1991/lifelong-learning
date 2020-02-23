@@ -26,6 +26,8 @@ Isolated React component development environment with a living style guide: http
 
 ssr: https://iyideng.com/truth/cgfw/self-built-ss-ssr-server-tutorial-hostwinds-vps.html#2SSR
 
+v2ray: https://www.noobyy.com/
+
 ## python
 
 安装环境：https://www.jianshu.com/p/2728a846bf43
