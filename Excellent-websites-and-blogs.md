@@ -8,6 +8,8 @@ hackernoon: https://hackernoon.com/
 
 github blog: https://github.com/YvetteLau
 
+             https://github.com/zuopf769/notebook
+
 ## Website
 
 Page speed Insights: https://developers.google.com/speed/pagespeed/insights/
@@ -27,6 +29,8 @@ Isolated React component development environment with a living style guide: http
 ssr: https://iyideng.com/truth/cgfw/self-built-ss-ssr-server-tutorial-hostwinds-vps.html#2SSR
 
 v2ray: https://www.noobyy.com/
+
+科学上网：https://www.socketproapp.com/、https://stc-beta4.com/
 
 ## python
 
