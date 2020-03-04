@@ -30,7 +30,7 @@ ssr: https://iyideng.com/truth/cgfw/self-built-ss-ssr-server-tutorial-hostwinds-
 
 v2ray: https://www.noobyy.com/
 
-科学上网：https://www.socketproapp.com/、https://stc-beta4.com/
+科学上网：https://www.socketproapp.com/、https://stc-beta4.com/、https://www.xinjiecloud.co/
 
 ## python
 
