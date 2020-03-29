@@ -43,3 +43,16 @@ Vue:
 https://github.com/chinaBerg/market-ui
 
 https://github.com/heyui/heyui
+
+
+按需加载
+
+[babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)
+
+[babel-plugin-component](https://www.npmjs.com/package/babel-plugin-component)
+
+## 校验
+
+表单校验
+
+https://github.com/yiminghe/async-validator
