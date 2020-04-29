@@ -56,3 +56,89 @@ CSS规范规定，每个元素都有display属性，确定该元素的类型，�
 ```html
 <area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
 ```
+
+## 请描述一下 cookies，sessionStorage 和 localStorage 的区别？
+
+Cookie是保存在客户端的多组记录，在客户端以文件的形式存在。在与服务通信时，Cookie中通常会被要求保存会话的Session ID等信息，以用于识别客户端。服务器通过response响应头的set-Cookie字段来让客户端在本地Cookie中记录信息，下面是一个示例：
+
+```
+[HTTP/1.1 200 OK]
+Server:[bfe/1.0.8.18]
+Etag:["58860415-98b"]
+Cache-Control:[private, no-cache, no-store, proxy-revalidate, no-transform]
+Connection:[Keep-Alive]
+Set-Cookie:[BDORZ=27315; max-age=86400; domain=.baidu.com; path=/]
+Pragma:[no-cache]
+Last-Modified:[Mon, 23 Jan 2017 13:24:37 GMT]
+Content-Length:[2443]
+Date:[Mon, 09 Apr 2018 09:59:06 GMT]
+Content-Type:[text/html]
+```
+
+Cookie包含什么信息？
+
+它可以记录你的用户ID、密码、浏览过的网页、停留的时间等信息。当你再次来到该网站时，网站通过读取Cookies，得知你的相关信息，就可以做出相应的动作，如在页面显示欢迎你的标语，或者让你不用输入ID、密码就直接登录等等。一个网站只能读取它自己放置的信息，不能读取其他网站的Cookie文件。因此，Cookie文件还保存了host属性，即网站的域名或ip。
+这些属性以名值对的方式进行保存，为了安全，它的内容大多进行了加密处理。Cookie文件的命名格式是：用户名@网站地址[数字].txt
+
+区别：
+
+cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回传递。
+sessionStorage 和 localStorage 不会自动把数据发给服务器，仅在本地保存。
+
+1. 存储大小
+
+cookie数据大小不能超过4k。
+
+sessionStorage 和 localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。
+
+2. 有期时间
+
+localStorage 存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
+
+sessionStorage 数据在当前浏览器窗口关闭后自动删除。
+
+cookie 设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭
+
+## iframe 有那些缺点
+
+1. iframe会阻塞主页面的Onload事件
+2. 搜索引擎的检索程序无法解读这种页面，不利于SEO
+3. iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载
+
+使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过javascript, 动态给iframe添加src属性值，这样可以绕开以上两个问题
+
+## 如何实现浏览器内多个标签页之间的通信
+
+WebSocket、SharedWorker；
+
+也可以调用localstorge、cookies等本地存储方式；
+
+localstorge另一个浏览上下文里被添加、修改或删除时，它都会触发一个事件，
+
+我们通过监听事件，控制它的值来进行页面信息通信；
+
+注意quirks：Safari 在无痕模式下设置localstorge值时会抛出 QuotaExceededError 的异常
+
+两个页面监听
+
+```js
+window.addEventListener('storage', function (e) {
+  alert(e.newValue)
+})
+```
+
+若在同一个页面中想绑定监听，需要自定义
+
+```js
+var orignalSetItem = localStorage.setItem;
+localStorage.setItem = function(key,newValue){
+  var setItemEvent = new Event("setItemEvent")
+  setItemEvent.newValue = newValue
+  window.dispatchEvent(setItemEvent)
+  orignalSetItem.apply(this,arguments)
+}
+window.addEventListener("setItemEvent", function (e) {
+    alert(e.newValue);
+})
+localStorage.setItem("name", "abc")
+```
