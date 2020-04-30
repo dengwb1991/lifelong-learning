@@ -62,3 +62,12 @@ https://github.com/alibaba/formily
 ## Hooks
 
 https://github.com/umijs/hooks
+
+
+## SVG
+
+http://www.htmleaf.com/html5/SVG/list_40_1.html
+
+https://www.cnblogs.com/yangshifu/p/9318434.html
+
+https://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/
