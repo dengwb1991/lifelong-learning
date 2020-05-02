@@ -244,5 +244,5 @@ flex 属性是`flex-grow`, `flex-shrink` 和 `flex-basis` 的简写，默认值�
 				<div class="clear"></div>
     </div>
 </body>
-</html
+</html>
 ```
