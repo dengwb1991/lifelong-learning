@@ -234,3 +234,180 @@ function extend(Child, Parent) {　　　　
 ```
 
 不需要先继承后定义
+
+## 八、JavaScript模块化（ES Module/CommonJS/AMD/CMD） 各自区别？
+
+CommonJS模块是对象，是运行时加载，运行时才把模块挂载在exports之上（加载整个模块的所有），加载模块其实就是查找对象属性.
+
+ES Module不是对象，是使用export显示指定输出，再通过import输入。此法为编译时加载，编译时遇到import就会生成一个只读引用。等到运行时就会根据此引用去被加载的模块取值。所以不会加载模块所有方法，仅取所需。
+
+### CommonJS 与 ES6 区别
+
+1. CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用.
+2. CommonJS 模块是运行时加载，ES6 模块是编译时输出接口.
+
+### CommonJS 与 AMD / CMD 的差异
+
+AMD/CMD是CommonJS在浏览器端的解决方案。
+
+1. CommonJS是同步加载（代码在本地，加载时间基本等于硬盘读取时间）
+2. AMD/CMD是异步加载（浏览器必须这么干，代码在服务端）
+
+### AMD 与 CMD 的差异
+
+1. AMD是提前执行（RequireJS2.0开始支持延迟执行，不过只是支持写法，实际上还是会提前执行），CMD是延迟执行
+2. AMD推荐依赖前置，CMD推荐依赖就近
+3. AMD是 RequireJS 在推广过程中对模块定义的规范化产出。CMD是 SeaJS 在推广过程中对模块定义的规范化产出。
+
+### 用法
+
+#### CommonJS
+
+```js
+// 导出使用module.exports，也可以exports。exports指向module.exports；即exports = module.exports
+// 就是在此对象上挂属性
+// commonjs
+module.exports.add = function add(params) {
+    return ++params;
+}
+exports.sub = function sub(params) {
+    return --params;
+}
+
+// 加载模块使用require('xxx')。相对、绝对路径均可。默认引用js，可以不写.js后缀
+// index.js
+var common = require('./commonjs');
+console.log(common.sub(1));
+console.log(common.add(1));
+```
+
+#### AMD / RequireJS
+
+* 定义模块: define(id?, dependencies?, factory)
+* 加载模块：require([module], factory)
+
+```js
+// a.js
+// 依赖有三个默认的，即"require", "exports", "module"。顺序个数均可视情况
+// 如果忽略则factory默认此三个传入参数
+// id一般是不传的，默认是文件名
+define(["b", "require", "exports"], function(b, require, exports) {
+    console.log("a.js执行");
+    console.log(b);
+// 暴露api可以使用exports、module.exports、return
+    exports.a = function() {
+        return require("b");
+    }
+})
+// b.js
+define(function() {
+    console.log('b.js执行');
+    console.log(require);
+    console.log(exports);
+    console.log(module);
+    return 'b';
+})
+// index.js
+// 支持Modules/Wrappings写法，注意dependencies得是空的，且factory参数不可空
+define(function(require, exports, module) {
+    console.log('index.js执行');
+    var a = require('a');
+    var b = require('b');
+})
+// index.js
+require(['a', 'b'], function(a, b) {
+    console.log('index.js执行');
+})
+```
+
+#### CMD / SeaJS
+
+[CMD定义规范](https://github.com/seajs/seajs/issues/242)
+
+* 定义模块：define(factory)
+
+```js
+// a.js
+// require, exports, module参数顺序不可乱
+// 暴露api方法可以使用exports、module.exports、return
+// 与requirejs不同的是，若是未暴露，则返回{}，requirejs返回undefined
+define(function(require, exports, module) {
+    console.log('a.js执行');
+    console.log(require);
+    console.log(exports);
+    console.log(module);
+})
+// b.js
+// 
+define(function(require, module, exports) {
+    console.log('b.js执行');
+    console.log(require);
+    console.log(exports);
+    console.log(module);
+})
+// index.js
+define(function(require) {
+    var a = require('a');
+    var b = require('b');
+    console.log(a);
+    console.log(b);
+})
+```
+
+#### ES Module
+
+* 复合写法
+
+```js
+export { a } from './module';
+export { a as a1 } from './module';
+export * from './module';
+```
+
+* 动态加载 import
+
+```js
+// 普通写法
+import('./module').then(({ a }) => {})
+// async、await
+const { a } = await import('./module');
+```
+
+#### 自实现
+
+```js
+var MyModules = (function(){
+    var modules = [];
+    function define(name, deps, cb) {
+        deps.forEach(function(dep, i) {
+            deps[i] = modules[dep];
+        });
+        modules[name] = cb.apply(cb, deps);
+    }
+    function get(name) {
+        return modules[name];
+    }
+    return {
+        define: define,
+        get: get
+    };
+})();
+MyModules.define('add', [], function() {
+    return function(a, b) {
+            return a + b;
+        };
+})
+MyModules.define('foo', ['add'], function(add) {
+    var a = 3;
+    var b = 4;
+    return {
+        doSomething: function() {
+            return add(a, b) + a;;
+        }
+    };
+})
+var add = MyModules.get('add');
+var foo = MyModules.get('foo');
+console.log(add(1, 2));
+console.log(foo.doSomething());
+```

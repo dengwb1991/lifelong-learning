@@ -44,6 +44,7 @@ https://github.com/chinaBerg/market-ui
 
 https://github.com/heyui/heyui
 
+https://github.com/huxiaocheng/vue-gn-components
 
 按需加载
 
