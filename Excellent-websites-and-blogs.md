@@ -83,3 +83,7 @@ https://github.com/huangwei9527/quark-h5
 ## 面试题
 
 https://github.com/qiu-deqing/FE-interview
+
+## sentry next接入
+
+https://www.colabug.com/2020/0215/7000913/

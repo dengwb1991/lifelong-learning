@@ -2,31 +2,29 @@
 <html>
 <head>
    <style type="text/css">
-   * {
-           margin:0;
-           padding:0;
-   }
-       .container {
-           width:300px;
-           /* height:156px; */
-           border:1px solid blue;
-           margin:100px;
-       }
-       .block1 {
-           width:50px;
-           border:1px solid red;
-       }
-       .block2 {
-           width:50px;
-           height:200px;
-           border:1px solid red;
-       }
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+        width: 600px;
+        height: 300px;
+        display: flex;
+    }
+    .left {
+        flex: 1 2 500px;
+        background: red;
+    }
+    .right {
+        flex: 2 1 400px;
+        background: blue;
+    }
    </style>
 </head>
 <body>
     <div class="container">
-        <div class="block1"><span>块1</span></div>
-        <div class="block2"><span>块2</span></div>
+        <div class="left"></div>
+        <div class="right"></div>
     </div>
 </body>
 </html>

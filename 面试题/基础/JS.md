@@ -411,3 +411,11 @@ var foo = MyModules.get('foo');
 console.log(add(1, 2));
 console.log(foo.doSomething());
 ```
+
+## 九、JS严格模式有何不同
+
+1. 严格模式中变量必须显示声明(var/let/const)
+2. arguments和eval是关键字，不能被修改，不能做变量处理
+3. call/apply/bind的第一个参数为null/undefined时，this为null/undefined
+4. delete使用var声明的变量或挂在window上的变量报错，删除系统内置的属性会报错
+5. 对象有重名的属性将报错、函数有重名的参数将报错，在严格模式下，函数的形参也不可以同名

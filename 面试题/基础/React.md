@@ -4,11 +4,21 @@ https://www.runoob.com/react/react-component-life-cycle.html
 
 ### 状态
 
-Mounting：已插入真实 DOM
+大致分为三个阶段：
 
-Updating：正在被重新渲染
+1. Mounting：已插入真实 DOM
+2. Updating：正在被重新渲染
+3. Unmounting：已移出真实 DOM
 
-Unmounting：已移出真实 DOM
+细分：
+
+1. 设置默认的props属性：es5 中使用 getDafaultProps 函数、es6 中使用class类 static defaultProps
+2. 设置状态机, 既初始化state对象：es5 中使用 getInitialState 函数、es6 中执行constructor构造函数 初始化state
+3. componentWillMount 组件出现之前
+4. render 渲染
+5. componentDidMount 组件出现后
+6. 整个组件渲染完成
+
 
 ### 渲染过程调用到的生命周期函数
 
@@ -87,3 +97,16 @@ Hook 将组件中相互关联的部分拆分成更小的函数（比如设置订
 3. 解决难以理解的 class
 
 使用 Class 必须要理解 JavaScript 中的 this.
+
+## 四、React 运行时
+
+运行时生命周期主要分为 `shouldComponentUpdate`、`componentWillUpdate`、`componentWillReceiveProps`、`componentDidUpdate`
+
+
+`shouldComponentUpdate` 返回一个布尔值。在组件接收到新的props或者state时被调用。在初始化时或者使用forceUpdate时不被调用。可以在你确认不需要更新组件时使用。
+
+`componentWillUpdate` 在组件接收到新的props或者state但还没有render时被调用。在初始化时不会被调用。
+
+`componentWillReceiveProps` 在组件接收到一个新的 prop (更新后)时被调用。这个方法在初始化render时不会被调用。
+
+`componentDidUpdate` 在组件完成更新后立即调用。在初始化时不会被调用.
