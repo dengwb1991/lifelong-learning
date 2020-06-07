@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue construct</title>
+  </head>
+  <body>
+    <div id="root">
+      <p>{{name.firstName}}</p>
+      <p>{{message}}</p>
+    </div>
+  
+
+  <script>
+    /**
+     * 目的：解决 Vue 中大量的使用层级 ( {{ child.name.firstName }} )
+     * 
+     * 创建 getValueByPath 函数，参数 { object, path } 返回深层值
+     */
+
+    // 内部的数据使用下划线 开头, 只读数据使用 $ 开头
+    function MyVue (options) {
+      this._el = options.el
+      this._data = options.data
+
+      // 准备工作 获得模版
+      this._templateDOM = document.querySelector(this._el)
+      this._parset = this._templateDOM.parentNode
+
+      this.render()
+    }
+
+    MyVue.prototype.render = function () {
+      this.compiler()
+    }
+
+    MyVue.prototype.compiler = function () {
+      const realHTMLDOM = this._templateDOM.cloneNode(true)
+      compiler(realHTMLDOM, this._data)
+      this.update(realHTMLDOM)
+    }
+
+    MyVue.prototype.update = function (realHTMLDOM) {
+      this._parset.replaceChild(realHTMLDOM, this._templateDOM)
+    }
+    const Brace = /\{\{(.+?)\}\}/g
+    function compiler (template, data) {
+      let childNodes = template.childNodes // 取出子元素
+      for (let i = 0; i < childNodes.length; i++) {
+        const type = childNodes[i].nodeType // 1.元素 2.文本节点
+        if (type === 3) { // 文本节点，可以判断 {{}} 插值
+          let text = childNodes[i].nodeValue
+          text = text.replace(Brace, function (_, g) {
+            const key = g.trim()
+            const value = getValueByPath(data, key)
+            return value
+          })
+          childNodes[i].nodeValue = text
+        } else if (type === 1) { // 元素 考虑它有没有子元素，是否需要将其子元素进行 判断是否要插值
+          compiler(childNodes[i], data)
+        }  
+      }
+    }
+  
+    function getValueByPath (obj, path) {
+      let paths = path.split('.')
+
+      let result = obj
+      let key
+      while (key = paths.shift()) {
+        result = result[key]
+      }
+      return result
+    }
+
+    let App = new MyVue({
+      el: '#root',
+      data: {
+        name: {
+          firstName: '我是 FIRST NAME'
+        },
+        message: '我是一个 MESSAGE'
+      }
+    })
+  </script>
+</body>
+</html>
