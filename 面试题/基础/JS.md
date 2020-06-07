@@ -419,3 +419,24 @@ console.log(foo.doSomething());
 3. call/apply/bind的第一个参数为null/undefined时，this为null/undefined
 4. delete使用var声明的变量或挂在window上的变量报错，删除系统内置的属性会报错
 5. 对象有重名的属性将报错、函数有重名的参数将报错，在严格模式下，函数的形参也不可以同名
+
+## 十、new 的过程
+
+1. 创建一个空的简单 JavaScript 对象（即{}）；
+2. 链接该对象（即设置该对象的构造函数）到另一个对象 ；
+3. 将步骤1新创建的对象作为 this 的上下文 ；
+4. 如果该函数没有返回对象，则返回 this。
+
+```js
+function newParent(){
+    var obj = {}; // 首先创建一个对象
+    obj.__proto__ = Parent.prototype; // 然后将该对象的__proto__属性指向构造函数的protoType
+    var result = Parent.call(obj) // 执行构造函数的方法，将obj作为this传入
+    return typeof(result) == 'object' ?  result : obj
+}
+```
+
+## 十一、for...in、for...of 区别
+
+1. `for...in` 在 `ES5` 中被引入，可以遍历对象属性值，循环数组获取为下标;
+2. `for...of` 在 `ES6` 中被引入，不能循环普通的对象，循环数组获得value值;
