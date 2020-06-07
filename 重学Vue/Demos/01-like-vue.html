@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Like vue</title>
+  </head>
+  <body>
+    <div id="root">
+      <div>
+        <p>{{name}}-{{message}}</p>
+      </div>
+      <p>{{name}}</p>
+      <p>{{message}}</p>
+    </div>
+  
+
+  <script>
+    /**
+     * 步骤拆解
+     * 1. 拿到模版
+     * 2. 定义数据 data
+     * 3. 将数据与模版结合，得到的是 HTML 元素（DOM 元素）
+     * 4. 放到页面中
+     */
+
+    const tmpNode = document.querySelector('#root')
+
+    const data = {
+      name: '我是一个NAME',
+      message: '我是一个MASSAGE'
+    }
+
+    const Brace = /\{\{(.+?)\}\}/g
+    /**
+     * 将数据放在模版中，使用递归
+     * 与真正的 Vue 源码中的 compiler 实现有差别，这里直接操作 DOM
+     * @params template: DOM元素
+     */
+    function compiler (template, data) {
+      let childNodes = template.childNodes // 取出子元素
+      for (let i = 0; i < childNodes.length; i++) {
+        const type = childNodes[i].nodeType // 1.元素 2.文本节点
+        if (type === 3) { // 文本节点，可以判断 {{}} 插值
+          let text = childNodes[i].nodeValue
+          text = text.replace(Brace, function (_, g) {
+            const key = g.trim()
+            const value = data[key]
+            return value
+          })
+          childNodes[i].nodeValue = text
+        } else if (type === 1) { // 元素 考虑它有没有子元素，是否需要将其子元素进行 判断是否要插值
+          compiler(childNodes[i], data)
+        }  
+      }
+    }
+    // 生成新的 DOM 模版
+    let generateNode = tmpNode.cloneNode(true)
+
+    compiler(generateNode, data)
+
+    // 将渲染好的 HTML 加到页面中
+    root.parentNode.replaceChild( generateNode, root )
+
+    console.log('旧模版', tmpNode)
+    console.log('新模版', generateNode)
+
+    /**
+     * 存在的问题
+     * 1. Vue 使用的虚拟 DOM 并非直接操作真实 DOM
+     * 2. 只考虑了 单属性 ( {{ name }} ), 而 Vue 中大量的使用层级 ( {{ child.name.firstName }} )
+     * 3. 代码没有整合
+     */
+  </script>
+</body>
+</html>

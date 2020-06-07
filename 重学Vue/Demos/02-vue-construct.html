@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue construct</title>
+  </head>
+  <body>
+    <div id="root">
+      <div>
+        <p>{{name}}-{{message}}</p>
+      </div>
+      <p>{{name}}</p>
+      <p>{{message}}</p>
+    </div>
+  
+
+  <script>
+    /**
+     * 目的：结合01数据模版替换，整合代码，接近于 Options API
+     * 
+     * 步骤拆解
+     * 1. 定义一个 MyVue 函数, 函数参数为 { el, data }
+     * 2. new MyVue 函数时，初始化数据 准备渲染工作调用 render 方法
+     * 3. render -> compiler - update
+     */
+
+    // 内部的数据使用下划线 开头, 只读数据使用 $ 开头
+    function MyVue (options) {
+      this._el = options.el
+      this._data = options.data
+
+      // 准备工作 获得模版
+      this._templateDOM = document.querySelector(this._el)
+      this._parset = this._templateDOM.parentNode
+
+      this.render()
+    }
+
+    MyVue.prototype.render = function () {
+      this.compiler()
+    }
+
+    MyVue.prototype.compiler = function () {
+      const realHTMLDOM = this._templateDOM.cloneNode(true)
+      compiler(realHTMLDOM, this._data)
+      this.update(realHTMLDOM)
+    }
+
+    MyVue.prototype.update = function (realHTMLDOM) {
+      this._parset.replaceChild(realHTMLDOM, this._templateDOM)
+    }
+    const Brace = /\{\{(.+?)\}\}/g
+    function compiler (template, data) {
+      let childNodes = template.childNodes // 取出子元素
+      for (let i = 0; i < childNodes.length; i++) {
+        const type = childNodes[i].nodeType // 1.元素 2.文本节点
+        if (type === 3) { // 文本节点，可以判断 {{}} 插值
+          let text = childNodes[i].nodeValue
+          text = text.replace(Brace, function (_, g) {
+            const key = g.trim()
+            const value = data[key]
+            return value
+          })
+          childNodes[i].nodeValue = text
+        } else if (type === 1) { // 元素 考虑它有没有子元素，是否需要将其子元素进行 判断是否要插值
+          compiler(childNodes[i], data)
+        }  
+      }
+    }
+  
+    let App = new MyVue({
+      el: '#root',
+      data: {
+        name: '我是一个NAME',
+        message: '我是一个MASSAGE'
+      }
+    })
+  </script>
+</body>
+</html>
