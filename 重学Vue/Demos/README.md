@@ -4,6 +4,8 @@
 
 02-vue-construct 整合代码，接近于 Options API
 
-03-deep-props 实现数据深层级渲染问题
+03-deep-props 实现数据深层级渲染问题 `name.firstName`
 
 04-create-virtual-dom 实现将真实DOM转换为虚拟DOM、再将虚拟DOM转换为真实DOM
+
+05-currying 实现柯里化 优化模版转换AST 性能.

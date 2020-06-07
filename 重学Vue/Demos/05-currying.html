@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>create virtual dom</title>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+  
+  <script>
+    /**
+     * Vue 本质上是使用 HTML 的字符串作为模板，将字符串模版转换为 AST，再转换为 VNode，再转换为真实DOM
+     * 
+     * - 模板 -> AST （最消耗性能）
+     * - AST -> VNode
+     * - VNode -> DOM
+     * 
+     * 例如：Vue在判断dom标签是否为 HTML 内置标签，(约几十个)，若每次判断需要进行循环，相比会相当消耗性能
+     * 可以利用柯里化方式对其优化。
+     */
+
+    let tags = 'div,p,a,img,ul,li'.split(',')
+
+    function makeMap (keys) {
+      let set = {}
+      tags.forEach(key => set[key] = true)
+      return function (tagName) {
+        return !!set[tagName.toLowerCase()]
+      }
+    }
+
+    let isHTMLTag = makeMap(tag)
+  </script>
+</body>
+</html>
