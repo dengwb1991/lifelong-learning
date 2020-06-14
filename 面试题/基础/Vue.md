@@ -63,3 +63,19 @@ Vue 3 的CPU 时间仅为 Vue 2 的十分之一不到
 针对 Array 类型，采用原型相关的知识劫持常用的函数，从而知晓当前数组发生变化
 
 采用 Vue.set() 方法设置数组元素时，Vue 内部实际上是调用劫持后的 splice() 方法来触发更新。
+
+## 五、vuex 中 action 和 mutation 区别
+
+源码中 action 通过 dispatch 方法、mutation 通过 commit 方法提交.
+
+### 为什么 action 不能修改 state
+
+当某种类型的 action 只有一个声明时，action 的回调会被当做普通函数执行，如果有多个声明时，它们会被视为 Promise 实例，并用 Promise.all 执行。因为不能保证顺序，所以最后并不知道哪个action 修改了 state.
+
+在开发模式中，store通过$watch 监听 state, 通过断言（assert）监听 store._committing 标志位，mutation 会修改这个表示位，而 action 并不会进行修改，默认为 true. 所以会报错。但在生产模式并不会进行判断，如果 action 的声明为唯一的话，可以对 state 进行修改。
+
+### 为什么 Vuex 会使用 Promise.all 执行 action
+
+出于性能考虑，这样我们就可以最大限度进行异步操作并发
+
+补充：mutation 不能进行异步操作、action 可以异步操作
