@@ -22,7 +22,9 @@
   <script>
     function MyVue (options) {
       this._data = options.data
-      this._template = document.querySelector(options.el)
+      let elm = document.querySelector(options.el)
+      this._template = elm
+      this._parent = elm.parentNode
 
       this.mount() // 挂载 vue源码中相同
     }
@@ -49,7 +51,6 @@
        * 我们设置带有坑的 Vnode + data => 含有数据的 VNode
        */ 
       return function render () {
-        debugger
         let _tmp = combine(ast, this._data)
         return _tmp
       }
@@ -61,12 +62,18 @@
         this.update(this.render())
       }
       mount.call(this) // 本质应该交给 watcher 来调用
+
+      // 为什么
+      // this.update( this.render() ); // 使用发布订阅模式. 渲染和计算的行为应该交给 watcher 来完成
     }
 
     // 将虚拟 DOM 渲染到页面中: diff 算法就在里
-    MyVue.prototype.update = function () {
+    MyVue.prototype.update = function (vnode) {
       // 简化, 直接生成 HTML DOM replaceChild 到页面中
+      // 父元素.replaceChild(新元素，就元素)
+      let realDom = parseVNode(vnode)
 
+      this._parent.replaceChild(realDom, this._template)
     }
     const Brace = /\{\{(.+?)\}\}/g
     /**
@@ -142,6 +149,29 @@
       return _vnode
     }
 
+    // 将 vnode 转换为真实DOM
+    function parseVNode (vnode) {
+      let type = vnode.type
+      let _node = null
+      if (type === 3) {
+        return document.createTextNode(vnode.value)
+      } else if (type === 1) {
+        _node = document.createElement(vnode.tag)
+
+        let data = vnode.data
+        Object.keys(data).forEach(key => {
+          let attrName = key
+          let attrValue = data[key]
+          _node.setAttribute(attrName, attrValue)
+        })
+
+        let children = vnode.children
+        children.forEach(subVnode => {
+          _node.appendChild(parseVNode(subVnode))
+        }) 
+      }
+      return _node
+    }
 
 
     let app = new MyVue({
