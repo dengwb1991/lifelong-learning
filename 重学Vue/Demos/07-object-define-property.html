@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+  </div>
+  <script>
+    /**
+      Object.defineProperty(target, key, options)
+      该方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。
+      
+      1. configurable: true 该属性的描述符才能够被改变，同时该属性也能从对应的对象上被删除。默认为 false
+     
+      ```js
+      var obj = { a: 1 }
+      Object.defineProperty(obj, 'b', {
+        value: 2
+      })
+      delete obj.b  // false 未删除
+      Reflect.deleteProperty(obj, 'b') // false 未删除
+      ```
+
+      2. enumerable: true 该属性才会出现在对象的枚举属性中. 默认为 false
+
+      ```js
+      var obj = { a: 1 }
+      Object.defineProperty(obj, 'b', {
+        enumerable: false,
+        value: 2
+      })
+      ```
+
+      for (key in obj) {} // a
+      
+      Object.keys(obj) // ['a']
+
+      3. writable: true 属性的值，也就是上面的 value，才能被赋值运算符改变。默认为 false
+
+      ```js
+      var obj = { a: 1 }
+      Object.defineProperty(obj, 'b', {
+        writable: false,
+        value: 2
+      })
+      ```
+
+      obj.b = 3 // 2
+
+      如果是严格模式下 会报异常
+
+      4. get 和 set 不能与 value 和 writable 共存
+     */
+    var obj = {
+      name: '张三',
+      age: 18,
+      gender: '男'
+    }
+
+    function defineReactive (target, key, value, enumerable) {
+      // 函数内部就是一个局部作用域，这个 value 就只在函数内使用的变量（闭包）
+      Object.defineProperty(target, key, {
+        configurable: true,
+        enumerable: !!enumerable,
+        get () {
+          console.log(`读取 o 的 ${key} 属性`)
+          return value;
+        },
+        set (newValue) {
+          console.log(`设置 o 的 ${key} 属性为 ${newValue}`)
+          value = newValue
+        }
+      })
+    }
+
+    // 将对象转化为响应式
+    for (let key in obj) {
+      defineReactive(obj, key, obj[key], true)
+    }
+
+    obj.name = '李四'
+
+    obj.name
+  </script>
+</body>
+</html>

@@ -91,3 +91,12 @@ https://www.colabug.com/2020/0215/7000913/
 ## PPT
 
 https://www.yuque.com/preview/yuque/0/2019/pdf/333434/1577094595095-fc7b3af2-c6e5-4373-93a7-a03a6912d22b.pdf
+
+
+## React
+
+react+ts最佳实践： https://www.sitepoint.com/react-with-typescript-best-practices/
+
+## Canvas
+
+水波纹：https://github.com/beyondxgb/wave-demo
