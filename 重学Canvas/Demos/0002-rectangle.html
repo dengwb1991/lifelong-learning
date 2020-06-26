@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="400" height="400" style="border: 1px dashed gray;"></canvas>
+  <script>
+    window.onload = function () {
+      let cnv = document.getElementById('canvas')
+      let cxt = cnv.getContext('2d')
+      // 矩形
+      cxt.strokeStyle = 'red'
+      cxt.strokeRect(50, 50, 100, 100)
+
+      // 填充矩形
+      cxt.fillStyle = 'pink'
+      cxt.fillRect(200, 50, 100, 100)
+    }
+  </script>
+  </body>
+</html>

@@ -41,6 +41,63 @@ if (canvas.getContext){
 }
 ```
 
+## 直线图形
+
+Canvas 图形分为两种：直线和曲线图形
+
+直线图形包括：直线、矩形、对变形
+
+* 坐标系
+
+1. 数学坐标系：Y轴正方向向上
+2. W3C坐标系：Y轴正放向向下
+
+**Canvas使用的W3C坐标系**。
+
+#### 语法
+
+```js
+cxt.moveTo(x1, y1)
+cxt.lineTo(x2, y2)
+cxt.stroke()
+```
+
+`moveTo` 方法传入起点位置坐标，`lineTo` 方法传入终点位置坐标。最终调用 `stroke` 方法才会生效。
+
+若画多条线 `moveTo` 和 `lineTo` 可以重复使用，最终调用一次 `stroke` 即可。
+
 #### 第一个示例
 
-就花一条直线：**Demos/0001-first-canvas.html**
+就画一条直线：**Demos/0001-first-canvas.html**
+
+## 矩形图形
+
+#### 语法
+
+```js
+cxt.strokeStyle = 属性值
+cxt.strokeRect(x, y, width, height)
+```
+
+`strokeStyle` 是 context 对象的一个属性，`strokeRect` 是方法
+
+注意：`strokeStyle` 在 `strokeRect` 前定义，否则将不生效
+
+#### 矩形示例
+
+矩形：**Demos/0002-rectangle.html**
+
+## 填充矩形
+
+#### 语法
+
+```js
+cxt.fillStyle = 属性值
+cxt.fillRect(x, y, width, height)
+```
+
+规则与 stroke 一样.
+
+#### 填充矩形
+
+矩形：**Demos/0002-rectangle.html**
