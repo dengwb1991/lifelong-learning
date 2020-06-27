@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+  </head>
+  <body>
+    <div>
+      <canvas id="canvas" width="400" height="400" style="border: 1px dashed gray;"></canvas>
+      <button id="btn">Clear</button>
+    </div>
+  <script>
+    window.onload = function () {
+      let cnv = document.getElementById('canvas')
+      let cxt = cnv.getContext('2d')
+
+      // 矩形
+      cxt.fillStyle = 'black'
+      cxt.rect(50, 50, 100, 100)
+      cxt.fill()
+
+      let btn = document.getElementById('btn')
+      btn.onclick = function () {
+        cxt.clearRect(0, 0, cnv.width, cnv.height)
+      }
+    }
+  </script>
+  </body>
+</html>

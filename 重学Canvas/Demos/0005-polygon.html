@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+  </head>
+  <body>
+    <div>
+      <canvas id="canvas" width="400" height="400" style="border: 1px dashed gray;"></canvas>
+    </div>
+  <script>
+    window.onload = function () {
+      let cnv = document.getElementById('canvas')
+      let cxt = cnv.getContext('2d')
+
+      // createPolygon(cxt, 3, 100, 100, 50)
+      createPolygon(cxt, 6, 100, 100, 100)
+      cxt.fillStyle = 'pink'
+      cxt.fill()
+    }
+
+    function createPolygon (cxt, n, dx, dy, size) {
+      cxt.beginPath()
+      let degree = (2 * Math.PI) / n
+      for (let i = 0; i < n; i++) {
+        let x = Math.cos(i * degree)
+        let y = Math.sin(i * degree)
+        cxt.lineTo(x * size + dx, y * size + dy)
+      }
+      cxt.closePath()
+    }
+  </script>
+  </body>
+</html>

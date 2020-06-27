@@ -19,6 +19,20 @@
       // 填充矩形
       cxt.fillStyle = 'pink'
       cxt.fillRect(200, 50, 100, 100)
+
+      // 以上两种组合
+      cxt.strokeStyle = 'red'
+      cxt.strokeRect(50, 200, 100, 100)
+
+      cxt.fillStyle = 'pink'
+      cxt.fillRect(50, 200, 100, 100)
+
+      // 矩形清空
+      cxt.fillStyle = 'black'
+      cxt.rect(200, 200, 100, 100)
+      cxt.fill()
+
+      cxt.clearRect(220, 220, 60, 60)
     }
   </script>
   </body>

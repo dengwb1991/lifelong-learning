@@ -101,3 +101,70 @@ cxt.fillRect(x, y, width, height)
 #### 填充矩形
 
 矩形：**Demos/0002-rectangle.html**
+
+* rect() 方法
+
+使用 `strokeRect`、`fillRect` 和 `rect` 三种方法都可以绘制矩形，参数相同。不同之处在于实现效果，前两个方法在被调用后会立即绘制。rect方法在被调用后不会立刻绘制，需要在之后调用 `stroke` 或 `fill` 方法才会绘制。
+
+```js
+cxt.strokeStyle = 'red'
+cxt.rect(50, 50, 100, 100)
+cxt.stroke()
+
+// 等价于
+
+cxt.strokeStyle = 'red'
+cxt.strokeRect(50, 50, 100, 100)
+
+// fill相同
+```
+
+## 清空矩形
+
+#### 语法
+
+```js
+cxt.clearRect(x, y, width, height)
+```
+
+#### 示例
+
+矩形：**Demos/0002-rectangle.html**
+
+#### 清空整个画板
+
+清空画布：**Demos/0003-clear-canvas.html**
+
+## 多边形
+
+可以根据 `moveTo` 和 `lineTo` 两个方法来实现多边形.
+
+#### 示例
+
+箭头：**Demos/0004-arrow.html**
+
+## 正多边形
+
+封装多边形方法
+
+```js
+/**
+ * n: 几条边
+ * dx、dy：中心坐标
+ * size: 大小
+ */
+function createPolygon (cxt, n, dx, dy, size) {
+  cxt.beginPath()
+  let degree = (2 * Math.PI) / n
+  for (let i = 0; i < n; i++) {
+    let x = Math.cos(i * degree)
+    let y = Math.sin(i * degree)
+    cxt.lineTo(x * size + dx, y * size + dy)
+  }
+  cxt.closePath()
+}
+```
+
+#### 示例
+
+多边形：**Demos/0005-polygon.html**
