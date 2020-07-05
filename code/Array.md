@@ -95,3 +95,19 @@ Array.prototype.filter = function(fn,context){
     return result
 }
 ```
+
+## 五、获取最大值最小值
+
+```js
+var arr = [4, 2, 1, 5, 3]
+
+Math.max(...arr)
+
+Math.max.apply(null,arr)
+```
+
+```js
+var arr = [{ n: 4 }, { n: 2 }, { n: 1 }, { n: 5 }, { n: 3 }]
+
+Math.max.apply(null, arr.map(item => item.n))
+```
