@@ -100,3 +100,11 @@ react+ts最佳实践： https://www.sitepoint.com/react-with-typescript-best-pra
 ## Canvas
 
 水波纹：https://github.com/beyondxgb/wave-demo
+
+## 路由懒加载原理
+
+http://caibaojian.com/lazy-router.html
+
+## 其他
+
+a?.b?.c https://github.com/tc39/proposal-optional-chaining
