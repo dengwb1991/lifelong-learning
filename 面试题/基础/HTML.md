@@ -1,17 +1,17 @@
-## !DOCTYPE HTML 作用
+## 一、!DOCTYPE HTML 作用
 
 `<!DOCTYPE>` 声明位于HTML文档中的第一行，处于 `<html>` 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
 
 标准模式的排版和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
 
-## 页面导入样式时，使用link和@import有什么区别？
+## 二、页面导入样式时，使用link和@import有什么区别？
 
 1. 属性差异，link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS
 2. 加载机制差异，页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载
 3. 兼容性差异，import是CSS2.1 提出的，只在IE5以上才能被识别，而link是XHTML标签，无兼容问题
 4. link支持使用js控制DOM去改变样式，而@import不支持
 
-## 介绍一下你对浏览器内核的理解
+## 三、介绍一下你对浏览器内核的理解
 
 主要分成两部分：渲染引擎(layout engineer或Rendering Engine)和JS引擎
 
@@ -21,7 +21,7 @@ JS引擎：解析和执行javascript来实现网页的动态效果。
 
 最开始渲染引擎和JS引擎并没有区分的很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎。
 
-## 常见的浏览器内核有哪些
+## 四、常见的浏览器内核有哪些
 
 1. Trident：IE 浏览器内核；
 2. Gecko：Firefox 浏览器内核；
@@ -40,7 +40,7 @@ Opera：一起是 Presto，现在是 Blink 内核；
 2345 浏览器：以前是 IE 内核，现在是 IE + Blink 双内核；
 UC 浏览器内核：Webkit + Trident；
 
-## 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
+## 五、行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
 
 CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，则为“块级”元素；span默认display属性值为“inline”，是“行内”元素。
 
@@ -57,7 +57,7 @@ CSS规范规定，每个元素都有display属性，确定该元素的类型，�
 <area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
 ```
 
-## 请描述一下 cookies，sessionStorage 和 localStorage 的区别？
+## 六、请描述一下 cookies，sessionStorage 和 localStorage 的区别？
 
 Cookie是保存在客户端的多组记录，在客户端以文件的形式存在。在与服务通信时，Cookie中通常会被要求保存会话的Session ID等信息，以用于识别客户端。服务器通过response响应头的set-Cookie字段来让客户端在本地Cookie中记录信息，下面是一个示例：
 
@@ -99,7 +99,7 @@ sessionStorage 数据在当前浏览器窗口关闭后自动删除。
 
 cookie 设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭
 
-## iframe 有那些缺点
+## 七、iframe 有那些缺点
 
 1. iframe会阻塞主页面的Onload事件
 2. 搜索引擎的检索程序无法解读这种页面，不利于SEO
@@ -107,7 +107,7 @@ cookie 设置的cookie过期时间之前一直有效，即使窗口或浏览器�
 
 使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过javascript, 动态给iframe添加src属性值，这样可以绕开以上两个问题
 
-## 如何实现浏览器内多个标签页之间的通信
+## 八、如何实现浏览器内多个标签页之间的通信
 
 WebSocket、SharedWorker；
 
@@ -142,3 +142,18 @@ window.addEventListener("setItemEvent", function (e) {
 })
 localStorage.setItem("name", "abc")
 ```
+
+## 九、什么情况会触发重排（回流 reflow）和重绘（repaint）？
+
+* 调整窗口大小、改变布局大小、字号 都会触发重排、重绘
+* 染树需要重新分析且节点尺寸需要重新计算就称为重排。节点的几何属性或者样式发生变化就称为重绘。
+
+例如：
+
+1. 通过 `display: none` 隐藏一个DOM节点 触发重排和重绘.
+
+2. 通过 `visibility: hidden` 隐藏一个DOM节点 只触发重绘，因为没有几何变化.
+
+3. 改变字体颜色 只触发重绘.
+
+4. `translate` 不会引起重排

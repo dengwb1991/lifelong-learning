@@ -6,7 +6,7 @@ Javascript的内存分为堆内存和栈内存，数组作为对象，在建立�
 
 1. 数组中可以存放不同的数据结构，可以存放数组、对象、Number、Undefined、Null、String、Symbol、Boolean、Function等等
 2. 数组的index是字符串类型的，之所以你可以通过arr[1]，获得对应的数据，是因为Javascript自动将数字转化为字符串
-3. 数组本来应该是一个连续的内存分配，但是在Javascript中不是连续分配的，而是类似哈希映射的方式存在的，对于读取操作，哈希表的效率并不高，而修改删除的效率比较高
+* 3. 数组本来应该是一个连续的内存分配，但是在Javascript中不是连续分配的，而是类似**哈希映射**的方式存在的，对于读取操作，哈希表的效率并不高，而修改删除的效率比较高
 
 现在浏览器为了优化其操作，对数组的创建时候的内存分配进行了优化：
 
@@ -440,3 +440,9 @@ function newParent(){
 
 1. `for...in` 在 `ES5` 中被引入，可以遍历对象属性值，循环数组获取为下标;
 2. `for...of` 在 `ES6` 中被引入，不能循环普通的对象，循环数组获得value值;
+
+## 十二、宏任务、微任务
+
+宏任务(macro task) 有 setTimeout、MessageChannel、postMessage、setImmediate；
+
+微任务(micro task）有MutationObsever 和 Promise.then。

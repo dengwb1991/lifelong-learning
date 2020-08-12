@@ -2,7 +2,8 @@
 
 ## Blog
 
-A facebook front end engineer: https://overreacted.io/  
+A facebook front end engineer: https://overreacted.io/ 、https://www.phpied.com/
+
 
 hackernoon: https://hackernoon.com/
 
@@ -84,6 +85,8 @@ https://github.com/huangwei9527/quark-h5
 
 https://github.com/qiu-deqing/FE-interview
 
+https://juejin.im/post/6844904116339261447
+
 ## sentry next接入
 
 https://www.colabug.com/2020/0215/7000913/
@@ -104,6 +107,10 @@ react+ts最佳实践： https://www.sitepoint.com/react-with-typescript-best-pra
 ## 路由懒加载原理
 
 http://caibaojian.com/lazy-router.html
+
+## next-i18next 
+
+示例：https://codesandbox.io/examples/package/next-i18next
 
 ## 其他
 
