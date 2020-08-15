@@ -1,5 +1,7 @@
 # 简单的 webpack 搭建
 
+重写 createElement 模拟实现 jsx 解析
+
 ## 安装 webpack
 
 ```
@@ -102,7 +104,6 @@ OwlReact.createElement("span", null, "Hello "),
 OwlReact.createElement("span", null, "World!"));
 document.body.appendChild(a);
 ```
-
 
 
 ## 编写 OwlReact
