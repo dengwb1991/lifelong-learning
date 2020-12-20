@@ -1,0 +1,4 @@
+@import '/static/css/page.wxss'; 
+ .class1 {
+  color: #f00;
+}

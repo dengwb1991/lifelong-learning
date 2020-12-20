@@ -14,11 +14,14 @@ github blog: https://github.com/YvetteLau
 
 next.js blog: https://github.com/Maricaya/nextjs-blog
 
+promise: https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke
 ## Website
 
 Page speed Insights: https://developers.google.com/speed/pagespeed/insights/
 
 Isolated React component development environment with a living style guide: https://react-styleguidist.js.org/
+
+dev.to: https://dev.to/
 
 ## Html
 
@@ -115,8 +118,15 @@ http://caibaojian.com/lazy-router.html
 
 示例：https://codesandbox.io/examples/package/next-i18next
 
+## 流程图工具
+
+https://github.com/excalidraw/excalidraw
+
+https://app.diagrams.net/
+
 ## 其他
 
 a?.b?.c https://github.com/tc39/proposal-optional-chaining
 
 toyReact https://github.com/JTR354/Frontend-01-Template/tree/master/toy-react
+

@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "first-com": "./../../components/first-com/first-com"
+    },
+    "defaultTitle": "index",
+    "pullRefresh": false,
+    "allowsBounceVertical": "YES",
+    "titleBarColor": "#ffffff"
+}

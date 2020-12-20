@@ -1,0 +1,3 @@
+<view class="rich-text  cml-base cml-view cml-e1c99c74">
+  <text a:for="{{richList}}" style="{{item.style}}" a:key="{{index}}" onTap="_cmlInline" data-eventtap="{{['clickText',index]}}" class=" cml-base cml-text cml-e1c99c74">{{item.text}}</text>
+</view>

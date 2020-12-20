@@ -1,0 +1,4 @@
+@import '/static/css/page.acss'; 
+ .cml-514a1b8a.class1 {
+  color: #f00;
+}

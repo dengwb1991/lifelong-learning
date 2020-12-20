@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "first-com": "./../../components/first-com/first-com"
+    },
+    "navigationBarTitleText": "index",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E2E2E2"
+}

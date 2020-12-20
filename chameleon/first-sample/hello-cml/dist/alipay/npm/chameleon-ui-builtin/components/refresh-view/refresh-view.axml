@@ -1,0 +1,3 @@
+<view class=" cml-base cml-view cml-2a798506">
+  <slot class=" cml-base cml-slot cml-2a798506"></slot>
+</view>

@@ -1,0 +1,4 @@
+<view class="demo-com  cml-base cml-view cml-f3540a34">
+  <text class="title  cml-base cml-text cml-f3540a34">{{title}}</text>
+  <image src="{{imageSrc}}" class="logo  cml-base cml-image cml-f3540a34"></image>  
+</view>
