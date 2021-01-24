@@ -26,14 +26,14 @@ module.exports = async name => {
   log(data)
 
   // clone
-  // log(`🚀创建项目 ${name}`)
+  log(`🚀创建项目 ${name}`)
   // await clone('github:su37josephxia/vue-template', name)
 
   // 自动安装依赖
   log(`🔨安装依赖 ${name}`)
   // await spawn('yarn', ['--registry=https://registry.npmjs.org'], { cwd: `./${name}`})
   // await spawn('npm', ['install', '--registry=https://registry.npmjs.org'], { cwd: `./${name}`})
-  await spawn('cnpm', ['install'], { cwd: `./${name}`})
+  // await spawn('cnpm', ['install'], { cwd: `./${name}`})
   log(`👌完成`)
 
   // 启动项目

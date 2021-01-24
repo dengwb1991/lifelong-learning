@@ -1,5 +1,6 @@
 # 完成一个Cli
 
+https://www.processon.com/view/link/5e89ab04e4b0a1e6dcb47e67
 ## 创建环境
 
 ```bash
@@ -57,7 +58,25 @@ program.parse(process.argv)
 ### 实现close install run
 
 安装cnpm
-
 ```bash
 $ npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
+
+1. 通过 `download-git-repo` 库，实现 close 功能
+2. 通过 `child_process` 中 `spawn` 函数，执行命令行操作，实现 `npm` or `yarn` 等操作.
+
+更多[nodeJs API](http://nodejs.cn/api/)
+
+### 约定路由
+
+```bash
+$ dengwb refresh
+```
+
+定义 `.hbs` 模板. 通过使用 `handlebars` 模板库，将字段插入至模板内并创建.
+
+核心代码 `lib/refresh.js`
+
+1. 通过 fs 读取文件列表
+2. 对预制的`.hbs`模板生成代码文件
+
