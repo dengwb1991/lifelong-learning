@@ -106,6 +106,8 @@ https://www.yuque.com/preview/yuque/0/2019/pdf/333434/1577094595095-fc7b3af2-c6e
 
 react+ts最佳实践： https://www.sitepoint.com/react-with-typescript-best-practices/
 
+webpack5+ts+react 模板：https://github.com/Fay98de/webpack-typescript-react.boilerplate
+
 ## Canvas
 
 水波纹：https://github.com/beyondxgb/wave-demo
