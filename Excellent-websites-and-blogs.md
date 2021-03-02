@@ -129,6 +129,17 @@ https://app.diagrams.net/
 
 https://eva.js.org/
 
+## 条件编译
+
+https://segmentfault.com/a/1190000020102151、https://github.com/hzsrc/vue-element-ui-scaffold-webpack4
+
+## JS 解释器
+
+https://github.com/jrainlau/canjs
+
+## Dag
+
+https://github.com/alibaba/butterfly
 ## 其他
 
 a?.b?.c https://github.com/tc39/proposal-optional-chaining
