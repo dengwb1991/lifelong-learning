@@ -137,6 +137,9 @@ https://segmentfault.com/a/1190000020102151、https://github.com/hzsrc/vue-eleme
 
 https://github.com/jrainlau/canjs
 
+## webpack plugins 
+
+删除console可借鉴：https://github.com/AwesomeDevin/drop-console-webpack-plugin
 ## Dag
 
 https://github.com/alibaba/butterfly
