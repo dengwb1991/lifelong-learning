@@ -131,7 +131,9 @@ https://eva.js.org/
 
 ## 条件编译
 
-https://segmentfault.com/a/1190000020102151、https://github.com/hzsrc/vue-element-ui-scaffold-webpack4
+https://segmentfault.com/a/1190000020102151、https://github.com/hzsrc/vue-element-ui-scaffold-webpack4、https://github.com/hzsrc/js-conditional-compile-loader
+
+
 
 ## JS 解释器
 
