@@ -101,7 +101,7 @@ https://www.colabug.com/2020/0215/7000913/
 
 https://www.yuque.com/preview/yuque/0/2019/pdf/333434/1577094595095-fc7b3af2-c6e5-4373-93a7-a03a6912d22b.pdf
 
-
+ppt模板：http://www.1ppt.com/
 ## React
 
 react+ts最佳实践： https://www.sitepoint.com/react-with-typescript-best-practices/
@@ -131,7 +131,7 @@ https://eva.js.org/
 
 ## 条件编译
 
-https://segmentfault.com/a/1190000020102151、https://github.com/hzsrc/vue-element-ui-scaffold-webpack4、https://github.com/hzsrc/js-conditional-compile-loader
+https://segmentfault.com/a/1190000020102151、https://github.com/hzsrc/vue-element-ui-scaffold-webpack4、https://github.com/hzsrc/js-conditional-compile-loader、https://blog.csdn.net/kong_dzq/article/details/106744318
 
 
 
