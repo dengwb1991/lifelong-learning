@@ -136,7 +136,9 @@ https://eva.js.org/
 
 https://segmentfault.com/a/1190000020102151、https://github.com/hzsrc/vue-element-ui-scaffold-webpack4、https://github.com/hzsrc/js-conditional-compile-loader、https://blog.csdn.net/kong_dzq/article/details/106744318
 
+https://github.com/dedoyle/conditional-compile-loader
 
+https://www.npmjs.com/search?q=js-conditional-compile-loader&csrftoken=hieiPFx_SSHbvkuM5ihNFXPFUWBbbPkPa93Ls-Rlio8
 
 ## JS 解释器
 
@@ -154,3 +156,4 @@ a?.b?.c https://github.com/tc39/proposal-optional-chaining
 
 toyReact https://github.com/JTR354/Frontend-01-Template/tree/master/toy-react
 
+REM VW: https://blog.csdn.net/qq_43277404/article/details/102569333
