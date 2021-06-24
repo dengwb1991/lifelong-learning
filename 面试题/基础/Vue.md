@@ -22,7 +22,7 @@
 
 Hash模式：利用url的hash(#)，javascript通过hashChange事件来监听url的变化，改变 hash 不会重新加载页面.
 
-History模式：利用 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法.通过监听 popState时间
+History模式：利用 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法.通过监听 popState 事件
 
 
 ## 三、vue3

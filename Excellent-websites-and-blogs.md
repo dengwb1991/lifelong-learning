@@ -96,6 +96,8 @@ https://github.com/qiu-deqing/FE-interview
 
 https://juejin.im/post/6844904116339261447
 
+https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/index.html
+
 ## sentry next接入
 
 https://www.colabug.com/2020/0215/7000913/
