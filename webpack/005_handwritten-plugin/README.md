@@ -18,27 +18,27 @@
 
 ```js
 // es5
-var pluginName = 'test-webpack-plugin'
-function TestWebpackPlugin (opt) {
+var pluginName = 'some-webpack-plugin'
+function SomeWebpackPlugin (opt) {
 	this.options = opt
 }
-TestWebpackPlugin.prototype.apply = function (compiler) {
+SomeWebpackPlugin.prototype.apply = function (compiler) {
 	if (compiler.hooks) { // webpack4 +
     	compiler.hooks.emit.tapAsync(pluginName, function (compilation, callback) {
-        	// ...
-          callback()
-        })
+        // ...
+        callback()
+      })
     } else {
     	compiler.plugin('emit', function (compilation, callback) {
-        	// ...
-            callback()
-        })
+        // ...
+        callback()
+      })
     }
 }
 
 // es6
-const pluginName = 'test-webpack-plugin'
-class TestWebpackPlugin {
+const pluginName = 'some-webpack-plugin'
+class SomeWebpackPlugin {
 	constructor (opt) {
     	this.options = opt
     }
@@ -51,6 +51,8 @@ class TestWebpackPlugin {
         }
     }
 }
+
+module.exports = SomewebpackPlugin
 ```
 
 ## Compiler 与 Compilation
@@ -109,3 +111,12 @@ const {
 目录 plugins/fileListPlugin
 
 npm run build 时，在dist目录下生成 config.json 文件 将getListTask返回的数据插入其中
+
+
+## 链接
+
+[看清楚真正的 Webpack 插件](https://zoumiaojiang.com/article/what-is-real-webpack-plugin/#webpack-3)
+
+[webpack4核心模块tapable源码解析](https://www.cnblogs.com/tugenhua0707/p/11317557.html)
+
+[深入浅出 Webpack](http://webpack.wuhaolin.cn/5%E5%8E%9F%E7%90%86/5-4%E7%BC%96%E5%86%99Plugin.html)
