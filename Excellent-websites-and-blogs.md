@@ -152,6 +152,10 @@ https://github.com/jrainlau/canjs
 ## Dag
 
 https://github.com/alibaba/butterfly
+
+## 优化
+
+dns预解析：https://developer.mozilla.org/zh-CN/docs/Web/Performance/dns-prefetch、https://tech.meituan.com/2018/01/19/overseas-business-performance-optimization-practice.html、https://zhuanlan.zhihu.com/p/65434058
 ## 其他
 
 a?.b?.c https://github.com/tc39/proposal-optional-chaining
@@ -159,3 +163,5 @@ a?.b?.c https://github.com/tc39/proposal-optional-chaining
 toyReact https://github.com/JTR354/Frontend-01-Template/tree/master/toy-react
 
 REM VW: https://blog.csdn.net/qq_43277404/article/details/102569333
+
+gif压缩：https://www.tuhaokuai.com/gif?from=startOver、https://docsmall.com/gif-compress
