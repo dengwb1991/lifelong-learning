@@ -153,6 +153,12 @@ https://github.com/jrainlau/canjs
 
 https://github.com/alibaba/butterfly
 
+## 装饰器
+
+https://blog.csdn.net/qq_31967569/article/details/106617532
+
+https://ninghao.net/blog/7384
+
 ## 优化
 
 dns预解析：https://developer.mozilla.org/zh-CN/docs/Web/Performance/dns-prefetch、https://tech.meituan.com/2018/01/19/overseas-business-performance-optimization-practice.html、https://zhuanlan.zhihu.com/p/65434058
