@@ -1,0 +1,40 @@
+{
+  "name": "002_on-demand-loading-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/my-lib-cjs.js",
+  "module": "dist/my-lib-es.js",
+  "scripts": {
+    "i": "npm install --registry=https://registry.npmjs.org/",
+    "dev": "rollup -w -c rollup.config.js",
+    "build": "export NODE_ENV=production && rollup -c rollup.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rollup": "^2.40.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.4",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "autoprefixer": "^9.6.1",
+    "cssnano": "^5.0.8",
+    "less": "^4.1.1",
+    "postcss": "^8.3.6",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie < 8",
+    "last 2 versions",
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
+  ]
+}
