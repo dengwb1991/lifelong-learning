@@ -1,5 +1,5 @@
 import DwbButton from './components/button/index'
-import DwbConsole from './components/button/index'
+import DwbConsole from './components/console/index'
 
 const components = [
   DwbButton,

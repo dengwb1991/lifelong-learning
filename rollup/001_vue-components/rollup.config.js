@@ -14,14 +14,15 @@ const config = {
     }
   },
   plugins: [ // 引入的插件在这里配置
-    resolve(),
+    resolve({ extensions: ['.vue'] }),
     vue({
       css: true,
       compileTemplate: true
     }),
-    babel({
-      exclude: "**/node_modules/**"
-    }),
+    babel(),
+    // babel({
+    //   exclude: "**/node_modules/**"
+    // }),
     commonjs(),
     image()
   ]
