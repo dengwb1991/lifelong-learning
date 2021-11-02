@@ -171,3 +171,5 @@ toyReact https://github.com/JTR354/Frontend-01-Template/tree/master/toy-react
 REM VW: https://blog.csdn.net/qq_43277404/article/details/102569333
 
 gif压缩：https://www.tuhaokuai.com/gif?from=startOver、https://docsmall.com/gif-compress
+
+脑图：https://f2e.tech/mindmap
