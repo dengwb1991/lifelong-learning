@@ -5,11 +5,7 @@
 </template>
 
 <script>
-import { Button } from 'r-components'
 
 export default {
-  components: {
-    [Button.name]: Button 
-  }  
 }
 </script>

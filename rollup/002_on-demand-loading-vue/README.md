@@ -314,7 +314,7 @@ export default {
         autoprefixer(),
         cssnano()
       ],
-      extract: 'css/index.css'  
+      extract: 'css/index.css'
     })
   ]
 }
