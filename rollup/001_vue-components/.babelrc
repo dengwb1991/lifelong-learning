@@ -1,14 +1,13 @@
 {
   "presets": [
-    ["@babel/preset-env", {
-      "modules": false
-    }]
+    ["env", { "modules": false }],
+    "stage-3"
   ],
   "plugins": [
     [
       "module-resolver",
       {
-        "root": ["./src"]
+        "root": ["src/"]
       }
     ]
   ]

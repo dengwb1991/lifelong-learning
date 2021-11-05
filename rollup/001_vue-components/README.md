@@ -4,6 +4,8 @@
 
 [vue教程](https://cn.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html)
 
+* 该示例中的rollup、babel 版本配置打包后可以完全转译es6
+
 ## rollup 插件
 
 `rollup-plugin-node-resolve`:  rollup 无法识别 node_modules 中的包，帮助 rollup 查找外部模块，然后导入

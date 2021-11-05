@@ -1,8 +1,7 @@
 import resolve from "rollup-plugin-node-resolve"
 import vue from "rollup-plugin-vue"
-import babel from "@rollup/plugin-babel"
-import commonjs from "@rollup/plugin-commonjs"
-import image from "@rollup/plugin-image"
+import babel from "rollup-plugin-babel"
+import commonjs from "rollup-plugin-commonjs"
 
 const config = {
   input: "./src/index.js", // 必须，入口文件
@@ -23,8 +22,7 @@ const config = {
     // babel({
     //   exclude: "**/node_modules/**"
     // }),
-    commonjs(),
-    image()
+    commonjs()
   ]
 }
 
