@@ -14,6 +14,8 @@ github blog: https://github.com/YvetteLau
 
 next.js blog: https://github.com/Maricaya/nextjs-blog
 
+nextJs作者：https://leerob.io/
+
 promise: https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke
 ## Website
 
@@ -167,6 +169,12 @@ https://github.com/adminV/juggle、https://juejin.cn/post/6844903991520968717
 ## 优化
 
 dns预解析：https://developer.mozilla.org/zh-CN/docs/Web/Performance/dns-prefetch、https://tech.meituan.com/2018/01/19/overseas-business-performance-optimization-practice.html、https://zhuanlan.zhihu.com/p/65434058
+
+
+## 自研JS框架
+
+mvvm: https://blog.csdn.net/qq_45516476/article/details/105162341
+
 ## 其他
 
 a?.b?.c https://github.com/tc39/proposal-optional-chaining
@@ -178,3 +186,7 @@ REM VW: https://blog.csdn.net/qq_43277404/article/details/102569333
 gif压缩：https://www.tuhaokuai.com/gif?from=startOver、https://docsmall.com/gif-compress
 
 脑图：https://f2e.tech/mindmap
+
+2021全明星项目：https://risingstars.js.org/2021/zh
+
+stateofjs: https://2021.stateofjs.com/zh-Hans/
