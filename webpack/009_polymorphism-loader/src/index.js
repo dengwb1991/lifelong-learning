@@ -1,5 +1,5 @@
-import event from './event/event'
-import it from './interface/interface.production'
+import bridge from './mode/bridge'
+import it from './interface/interface.dev'
 
-event()
-it()
+console.log(bridge())
+console.log(it())

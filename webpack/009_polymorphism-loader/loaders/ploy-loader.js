@@ -10,7 +10,7 @@ function getResource (source) {
   const options = loaderUtils.getOptions(this) || {}
   let resource = source
   let requireFileStatements = source.match(utils.REG.matchRequireStatements)
-  if (requireFileStatements) {
+  if (requireFileStatements && options.mode) {
     for (let i = 0, len = requireFileStatements.length; i < len; i++) {
       let requireFilePath = requireFileStatements[i].match(utils.REG.matchRequireFilePath)[0]
       requireFilePath = requireFilePath.substring(1, requireFilePath.length - 1)
@@ -22,6 +22,7 @@ function getResource (source) {
         list.pop()
         list.push(modeFileName)
         resource = resource.replace(requireFilePath, list.join('/'))
+        console.log(resource)
       }
     }
   }

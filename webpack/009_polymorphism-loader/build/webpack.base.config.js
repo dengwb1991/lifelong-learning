@@ -15,9 +15,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [{
-          loader: 'ploy-loader',
+          // loader: 'ploy-loader',
+          loader: 'polymorphism-loader',
           options: {
-            mode: 'development'
+            mode: 'prod'
           }
         }, 'babel-loader']
       }

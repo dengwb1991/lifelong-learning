@@ -12,7 +12,7 @@ rules: [
     use: [{
       loader: 'ploy-loader',
       options: {
-        mode: 'production'
+        mode: 'prod'
       }
     }]
   }
