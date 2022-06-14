@@ -175,10 +175,26 @@ https://github.com/adminV/juggle、https://juejin.cn/post/6844903991520968717
 dns预解析：https://developer.mozilla.org/zh-CN/docs/Web/Performance/dns-prefetch、https://tech.meituan.com/2018/01/19/overseas-business-performance-optimization-practice.html、https://zhuanlan.zhihu.com/p/65434058
 
 
+## webComponents
+
+兼容vue2和3： https://github.com/vueuse/vue-demi
+
+https://github.com/dolymood/uni-component
+
+简单的vue3源码实现：https://github.com/Lonely-shang/simple-vue
+
+## typescript
+
+自动生成声明文件：https://ts-morph.com/、@vue/compiler-sfc
+
 ## 自研JS框架
 
 mvvm: https://blog.csdn.net/qq_45516476/article/details/105162341
 
+
+## 低代码
+
+https://github.com/shadowings-zy/mini-editor
 ## 其他
 
 a?.b?.c https://github.com/tc39/proposal-optional-chaining
@@ -194,3 +210,4 @@ gif压缩：https://www.tuhaokuai.com/gif?from=startOver、https://docsmall.com/
 2021全明星项目：https://risingstars.js.org/2021/zh
 
 stateofjs: https://2021.stateofjs.com/zh-Hans/
+
