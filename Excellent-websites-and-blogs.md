@@ -183,6 +183,11 @@ https://github.com/dolymood/uni-component
 
 简单的vue3源码实现：https://github.com/Lonely-shang/simple-vue
 
+vue转web component
+https://vuejsdevelopers.com/2018/05/21/vue-js-web-component/
+https://github.com/vuejs/vue-web-component-wrapper
+
+入门实战学习：https://www.jianshu.com/p/2d73cc4dead0
 ## typescript
 
 自动生成声明文件：https://ts-morph.com/、@vue/compiler-sfc
