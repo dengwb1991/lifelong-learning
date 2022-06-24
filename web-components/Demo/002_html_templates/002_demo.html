@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <template id="user-text-template">
+        <style>
+            p {
+                color: red;
+            }
+        </style>
+        <p id="templateDOM">你好，我是模版！</p>
+        <p><slot>因为我是无效的，我也会默认展示</slot></p>
+    </template>
+    <user-text>
+        <p>light DOM 环境下，slot 标签没用</p>
+    </user-text>
+    <script>
+        class UserText extends HTMLElement {
+            constructor () {
+                super();
+            }
+            connectedCallback () {
+                const oldNode = document.getElementById("user-text-template").content;
+                const newNode = oldNode.cloneNode(true);
+                this.appendChild(newNode);
+            }
+        }
+        globalThis.customElements.define("user-text", UserText);
+        console.log(document.getElementById("templateDOM"));
+    </script>
+</body>
+</html>

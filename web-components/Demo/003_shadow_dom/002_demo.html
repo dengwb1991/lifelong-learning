@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 变量样式穿透</title>
+    <style>
+        [type="primary"] {
+            --ui-button-border: 1px solid transparent;
+            --ui-button-background: deepskyblue;
+            --ui-button-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <template id="ui-button-template">
+        <style>
+            button {
+                cursor: pointer;
+                padding: 9px 1em;
+                border: var(--ui-button-border, 1px solid #ccc);
+                border-radius: var(--ui-button-radius, 4px);
+                background-color: var(--ui-button-background, red);
+                color:  var(--ui-button-color, #333);
+            }
+        </style>
+        <button ><slot></slot></button>
+    </template>
+    <ui-button type="primary">按钮</ui-button>
+    <script>
+        class UiButton extends HTMLElement {
+            constructor () {
+                super();
+            }
+            connectedCallback () {
+                this.attachShadow( { mode: "open" });
+                const oldNode = document.getElementById("ui-button-template").content;
+                const newNode = oldNode.cloneNode(true);
+                this.shadowRoot.appendChild(newNode);
+            }
+        }
+        globalThis.customElements.define("ui-button", UiButton);
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义弹框</title>
+</head>
+<body>
+    <style>
+        .open-button {
+            cursor: pointer;
+            padding: 9px 1em;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            background-color: deepskyblue;
+            color: #fff;
+        }
+        ul > li {
+            margin: 20px;
+        }
+    </style>
+
+    <section>
+        <ul>
+            <li><button id="launch-dialog-one" class="open-button">open-one</button>
+            <li><button id="launch-dialog-two" class="open-button">open-two</button></li>
+            <li><button id="launch-dialog-three" class="open-button">open-three</button></li></li>
+        </ul>
+    </section>
+
+    <shanshu-dialog title="title-one" id="shanshu-dialog-one">
+        <span slot="my-text">Let's have some different text!</span>
+        <p>Some contents Some contents......</p>
+        <p>Some contents Some contents......</p>
+        <p>Some contents Some contents......</p>
+    </shanshu-dialog>
+    
+    <shanshu-dialog title="title-two" id="shanshu-dialog-two">
+        <span slot="my-text">Let's have some different text!</span>
+        <p>Some contents Some contents......</p>
+        <p>Some contents Some contents......</p>
+        <p>Some contents Some contents......</p>
+    </shanshu-dialog>
+    
+    <shanshu-dialog title="title-three" id="shanshu-dialog-three">
+        <span slot="my-text">Let's have some different text!</span>
+        <p>Some contents Some contents......</p>
+        <p>Some contents Some contents......</p>
+        <p>Some contents Some contents......</p>
+    </shanshu-dialog>
+
+    <template id="shanshu-dialog-template">
+        <style>
+            .wrapper {
+                opacity: 0;
+                transition: visibility 0s, opacity 0.25s ease-in;
+            }
+
+            .wrapper:not(.open) {
+                visibility: hidden;
+            }
+
+            .wrapper.open {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .overlay {
+                background: rgba(0, 0, 0, 0.3);
+                height: 100%;
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+
+            .dialog {
+                background: #ffffff;
+                max-width: 600px;
+                min-width: 400px;
+                text-align: center;
+                padding: 1rem;
+                position: fixed;
+                border-radius: 4px;
+            }
+
+            button {
+                all: unset;
+                cursor: pointer;
+                font-size: 1.25rem;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            button:focus {
+                border: 1px solid skyblue;
+            }
+            h1 {
+                color: #4c5161;
+            }
+            .content {
+                color: #34495e;
+                position: relative;
+            }
+            .btn {
+                background: none;
+                outline: 0;
+                border: 0;
+                position: absolute;
+                right: 1em;
+                top: 1em;
+                width: 20px;
+                height: 20px;
+                padding: 0;
+                user-select: none;
+                cursor: unset;
+            }
+            .btn::before {
+                content: "";
+                display: block;
+                border: 1px solid green;
+                height: 20px;
+                width: 0;
+                border-radius: 2px;
+                /*transition: .1s;*/
+                transform: translate(9px) rotate(45deg);
+                background: #fff;
+            }
+            .btn::after {
+                content: "";
+                display: block;
+                border: 1px solid green;
+                height: 20px;
+                border-radius: 2px;
+                width: 0;
+                /*transition: .1s;*/
+                transform: translate(9px, -100%) rotate(-45deg);
+                background: #fff;
+            }
+        </style>
+        <div class="wrapper">
+            <div class="overlay"></div>
+            <div class="dialog" role="dialog" aria-labelledby="title" aria-describedby="content">
+                <button aria-label="Close" class="btn"></button>
+                <h1 id="title">Hello world</h1>
+                <div id="content" class="content">
+                    <slot></slot>
+                    <slot name="my-text"></slot>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <script type="text/javascript">
+        "use strict";
+        class ShanshuDialog extends HTMLElement {
+            static get observedAttributes() {
+                return ["open"];
+            }
+            constructor() {
+                super();
+                this.attachShadow({ mode: "open" });
+                this.close = this.close.bind(this);
+            }
+            connectedCallback() {
+                const { shadowRoot } = this;
+                const templateElem = document.getElementById("shanshu-dialog-template");
+                const oldNode = templateElem.content;
+                // const newNode = oldNode.cloneNode(true);
+                const newNode = document.importNode(oldNode, true);
+                shadowRoot.appendChild(newNode);
+                shadowRoot.getElementById("title").innerHTML = this.title;
+                shadowRoot.querySelector("button").addEventListener("click", this.close);
+                shadowRoot.querySelector(".overlay").addEventListener("click", this.close);
+            }
+            disconnectedCallback() {
+                this.shadowRoot.querySelector("button").removeEventListener("click", this.close);
+                this.shadowRoot.querySelector(".overlay").removeEventListener("click", this.close);
+            }
+            get open() {
+                return this.hasAttribute("open");
+            }
+            set open(isOpen) {
+                console.log("isOpen", isOpen);
+                const { shadowRoot } = this;
+                shadowRoot.querySelector(".wrapper").classList.toggle("open", isOpen);
+                shadowRoot.querySelector(".wrapper").setAttribute("aria-hidden", !isOpen);
+                if (isOpen) {
+                    this._wasFocused = document.activeElement;
+                    this.setAttribute("open", false);
+                    this.focus();
+                    shadowRoot.querySelector("button").focus();
+                } else {
+                    this._wasFocused && this._wasFocused.focus && this._wasFocused.focus();
+                    this.removeAttribute("open");
+                    this.close();
+                }
+            }
+            close() {
+                if (this.open) {
+                  this.open = false
+                  const closeEvent = new CustomEvent("dialog-closed");
+                  this.dispatchEvent(closeEvent);
+                }
+            }
+        }
+        customElements.define("shanshu-dialog", ShanshuDialog);
+
+
+        const buttonOneDOM = document.getElementById("launch-dialog-one");
+        const buttonTwoDOM = document.getElementById("launch-dialog-two");
+        const buttonThreeDOM = document.getElementById("launch-dialog-three");
+        const shanshuDialogOne = document.querySelector("#shanshu-dialog-one");
+
+        buttonOneDOM.addEventListener("click", () => {
+            document.querySelector("#shanshu-dialog-one").open = true;
+        });
+        shanshuDialogOne.addEventListener("dialog-closed", () => {
+            // alert("对话框关闭回调函数");
+          console.log(123)
+        });
+
+        buttonTwoDOM.addEventListener("click", () => {
+            document.querySelector("#shanshu-dialog-two").open = true;
+        });
+        buttonThreeDOM.addEventListener("click", () => {
+            document.querySelector("#shanshu-dialog-three").open = true;
+        });
+        
+    </script>
+</body>
+</html>

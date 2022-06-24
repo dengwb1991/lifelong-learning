@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::part 样式穿透</title>
+    <style>
+        [type="primary"]::part(button) {
+            cursor: pointer;
+            padding: 9px 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: skyblue;;
+            color:  #987;
+        }
+    </style>
+</head>
+<body>
+    <template id="ui-button-template">
+        <button part="button"><slot></slot></button>
+    </template>
+    <ui-button type="primary">按钮</ui-button>
+    <script>
+        class UiButton extends HTMLElement {
+            constructor () {
+                super();
+            }
+            connectedCallback () {
+                this.attachShadow( { mode: "open" });
+                const oldNode = document.getElementById("ui-button-template").content;
+                const newNode = oldNode.cloneNode(true);
+                this.shadowRoot.appendChild(newNode);
+            }
+        }
+        globalThis.customElements.define("ui-button", UiButton);
+    </script>
+</body>
+</html>
