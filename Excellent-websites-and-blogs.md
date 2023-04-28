@@ -216,3 +216,4 @@ gif压缩：https://www.tuhaokuai.com/gif?from=startOver、https://docsmall.com/
 
 stateofjs: https://2021.stateofjs.com/zh-Hans/
 
+生成图片：https://docs.midjourney.com/docs/quick-start
