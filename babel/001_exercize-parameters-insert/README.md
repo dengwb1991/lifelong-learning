@@ -14,3 +14,7 @@ $ node ./src/demo1.js
 ## demo1
 
 实现将console中编译插入 `line` 和 `column`
+
+## demo2
+
+实现插入一个新的 console.log

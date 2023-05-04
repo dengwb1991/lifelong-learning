@@ -25,17 +25,31 @@ const ast = parser.parse(sourceCode, {
   plugins: ['jsx']
 })
 
-traverse(ast, {
-  CallExpression(path, state) {
-    if (types.isMemberExpression(path.node.callee)
-      && path.node.callee.object.name === 'console'
-      && ['log', 'info', 'debug', 'error'].includes(path.node.callee.property.name)) {
-        const { line, column } = path.node.loc.start
-        path.node.arguments.unshift(types.stringLiteral(`filename: (${line}, ${column})`))
-    }
+// traverse(ast, {
+//   CallExpression(path, state) {
+//     if (types.isMemberExpression(path.node.callee)
+//       && path.node.callee.object.name === 'console'
+//       && ['log', 'info', 'debug', 'error'].includes(path.node.callee.property.name)) {
+//         const { line, column } = path.node.loc.start
+//         path.node.arguments.unshift(types.stringLiteral(`filename: (${line}, ${column})`))
+//     }
 
-  }
-})
+//   }
+// })
+
+
+const targetCalleeName = ['log', 'info', 'error', 'debug'].map(item => `console.${item}`);
+
+traverse(ast, {
+    CallExpression(path, state) {
+        // const calleeName = generate(path.node.callee).code;
+        const calleeName = path.get('callee').toString()
+        if (targetCalleeName.includes(calleeName)) {
+            const { line, column } = path.node.loc.start;
+            path.node.arguments.unshift(types.stringLiteral(`filename: (${line}, ${column})`))
+        }
+    }
+});
 
 const { code, map } = generate(ast)
 
