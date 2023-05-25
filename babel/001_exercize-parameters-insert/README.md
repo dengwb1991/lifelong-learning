@@ -18,3 +18,7 @@ $ node ./src/demo1.js
 ## demo2
 
 实现插入一个新的 console.log
+
+## demo3
+
+改造成 babel 插件
