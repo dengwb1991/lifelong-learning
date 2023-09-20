@@ -89,3 +89,53 @@ for (item of arr) {
   })
 }
 ```
+
+```js
+//串行
+var p1 = function () {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      console.log(111);
+      resolve('p1');
+    }, 1000);
+  });
+};
+
+var p2 = function () {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      console.log(222);
+      resolve('p2');
+    }, 2000);
+  });
+};
+
+var p3 = function () {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      console.log(333);
+      resolve('p3');
+    }, 3000);
+  });
+};
+
+var p4 = function () {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      console.log(444);
+      resolve('p4');
+    }, 1000);
+  });
+};
+
+function executePromisesSerially(promises, index) {
+  if (index < promises.length) {
+    promises[index]().then(() => {
+      executePromisesSerially(promises, index + 1)
+    })
+  }
+}
+
+var allPromises = [p1, p2, p3, p4]
+executePromisesSerially(allPromises, 0)
+```
