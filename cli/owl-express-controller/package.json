@@ -1,0 +1,52 @@
+{
+  "name": "owl-controller",
+  "text": "express 路由扩展",
+  "version": "1.0.0",
+  "description": "express 路由扩展，扩展为装饰器路由",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:w": "jest --watch --collectCoverage=false",
+    "test:e": "DEBUG=owl-controller* ts-node --project tests/tsconfig.json tests/app.ts",
+    "build": "rm -rf ./dist && tsc",
+    "build:w": "rm -r ./dist && tsc -w"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^4.1.0",
+    "reflect-metadata": "^0.1.12"
+  },
+  "devDependencies": {
+    "@types/debug": "0.0.31",
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.5",
+    "@types/node": "^10.5.2",
+    "@types/supertest": "^2.0.6",
+    "express": "^4.16.3",
+    "jest": "^23.6.0",
+    "supertest": "^3.3.0",
+    "ts-jest": "^23.10.4",
+    "ts-node": "^7.0.1",
+    "typescript": "^5.2.2"
+  },
+  "jest": {
+    "rootDir": "tests",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "collectCoverage": true,
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}

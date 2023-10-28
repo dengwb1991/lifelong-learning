@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1698475645854" clover="3.2.0">
+  <project timestamp="1698475645854" name="All files">
+    <metrics statements="30" coveredstatements="30" conditionals="12" coveredconditionals="11" methods="12" coveredmethods="12" elements="54" coveredelements="53" complexity="0" loc="30" ncloc="30" packages="3" files="3" classes="3">
+      <package name="tests">
+        <metrics statements="14" coveredstatements="14" conditionals="12" coveredconditionals="11" methods="7" coveredmethods="7"/>
+        <file name="decorators.ts" path="/Users/didi/MyWorkspaces/lifelong-learning/cli/owl-express-controller/tests/decorators.ts">
+          <metrics statements="14" coveredstatements="14" conditionals="12" coveredconditionals="11" methods="7" coveredmethods="7"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="15" count="9" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="25" count="3" type="cond" truecount="4" falsecount="0"/>
+          <line num="28" count="2" type="stmt"/>
+          <line num="29" count="6" type="stmt"/>
+          <line num="30" count="3" type="cond" truecount="3" falsecount="1"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="35" count="2" type="cond" truecount="4" falsecount="0"/>
+          <line num="40" count="2" type="stmt"/>
+          <line num="42" count="2" type="stmt"/>
+          <line num="43" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="tests.routes">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="home-controller.ts" path="/Users/didi/MyWorkspaces/lifelong-learning/cli/owl-express-controller/tests/routes/home-controller.ts">
+          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="5" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="tests.routes.example.deep">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <file name="foo-bar-controller.ts" path="/Users/didi/MyWorkspaces/lifelong-learning/cli/owl-express-controller/tests/routes/example/deep/foo-bar-controller.ts">
+          <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="4" type="stmt"/>
+          <line num="16" count="2" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="31" count="2" type="stmt"/>
+          <line num="32" count="1" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>

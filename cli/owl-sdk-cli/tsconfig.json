@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es6", // 遵循 es6 版本
+    "module": "commonjs", // 打包模块类型 ESNext
+    "declaration": false, // 默认不要声明文件
+    "sourceMap": false, // 是否开启 sourceMap
+    "noLib": false, // 不处理类库
+    "strict": true, // 是否开启严格模式
+    "moduleResolution": "node", // 按照 node 模块来解析
+    "isolatedModules": false, // 是否将每个文件作为单独的模块
+    "experimentalDecorators": true, // 装饰器语法
+    "emitDecoratorMetadata": true, // 是否为装饰器提供元数据支持
+    "noImplicitAny": false, //  支持类型不标注可以默认 any
+    "noImplicitReturns": true, // 检查函数是否有返回值
+    "removeComments": true, // 删除注释
+    "suppressImplicitAnyIndexErrors": true,
+    "forceConsistentCasingInFileNames": true, // 强制区分大小写
+    "allowJs": true, // 是否允许编译JS文件
+    "resolveJsonModule": true, // 解析 json 模块
+    "skipLibCheck": true, // 跳过类库检测
+    "noEmit": false, // 不生成编译文件
+    "rootDir": "./",
+    "types": ["node"], // 指定需要包含的模块
+    "baseUrl": "./packages",
+    "paths": {
+      "src": ["./packages/*/src"]
+    },
+  },
+  "include": [
+  ],
+  "exclude": ["node_modules", "**/*.js"] // 需要排除 .js 文件，否则会报错 `无法写错写入文件 ，因为他会覆盖输入文件`
+}
