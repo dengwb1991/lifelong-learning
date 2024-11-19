@@ -82,6 +82,8 @@ https://www.cnblogs.com/yangshifu/p/9318434.html
 
 https://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/
 
+库：https://gsap.com/ 
+
 ## 可视化编辑器
 
 https://github.com/livelyPeng/pl-drag-template
@@ -136,6 +138,7 @@ https://app.diagrams.net/
 https://whimsical.com/
 
 像极了手稿的画图工具： https://excalidraw.com/ 
+
 ## 渲染引擎
 
 https://eva.js.org/
@@ -158,6 +161,8 @@ https://github.com/jrainlau/canjs
 ## Dag
 
 https://github.com/alibaba/butterfly
+
+https://site.logic-flow.cn/
 
 ## 装饰器
 
@@ -217,3 +222,5 @@ gif压缩：https://www.tuhaokuai.com/gif?from=startOver、https://docsmall.com/
 stateofjs: https://2021.stateofjs.com/zh-Hans/
 
 生成图片：https://docs.midjourney.com/docs/quick-start
+
+vpn: https://joinus.mimemi.cfd/auth/login

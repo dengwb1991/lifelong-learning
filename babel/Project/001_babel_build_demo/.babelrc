@@ -1,0 +1,4 @@
+{
+  "presets": ["@babel/preset-env"],
+	"plugins": ["./src/remove-unused-vars"]
+}
