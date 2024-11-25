@@ -19,7 +19,7 @@
     "@types/source-map": "^0.5.7",
     "anymatch": "^3.1.1",
     "clean-webpack-plugin": "^3.0.0",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "jscc": "^1.1.1",
     "loader-utils": "^2.0.0",
     "ts-loader": "^6.0.4",
